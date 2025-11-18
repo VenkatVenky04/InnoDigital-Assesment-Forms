@@ -1,0 +1,19 @@
+<div>
+    <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+        <label>Name</label>
+        <input type="text" name="name" required placeholder="Enter Name" [(ngModel)]="form2.name" #name="ngModel">
+        <br>
+
+        <label>PAN Number</label>
+        <input type="text" required name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" maxlength="10" placeholder="Enter PAN Number"
+        [(ngModel)]="form2.pan" #pan="ngModel" style="text-transform: uppercase;" (input)="form2.pan = form2.pan.toUpperCase()">
+        <br>
+
+        <label>Date Of Birth</label>
+        <input type="date" required name="dob" [(ngModel)]="form2.dob" #dob="ngModel" placeholder="Enter Date Of Birth"
+        >
+        <br>
+
+        <button type="submit" (click)="onSubmit(formRef)">Submit</button>
+    </form>
+</div>

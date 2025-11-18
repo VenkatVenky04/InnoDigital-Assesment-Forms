@@ -1,0 +1,40 @@
+<div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <label>Username</label>
+        <input type="text" required placeholder="Enter Your Username" formControlName="username">
+        <br>
+
+        <label>Name</label>
+        <input type="text" required placeholder="Enter Your Name" formControlName="name">
+        <br>
+
+        <label>Mobile Number</label>
+        <input type="text" placeholder="Enter Mobile Number" pattern="[0-9]{10}" maxlength="10" formControlName="phone">
+        <br>
+
+        <button type="button" (click)="onSubmit()">Submit</button>
+    </form>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>slno</th>
+                    <th>Username</th>
+                    <th>name</th>
+                    <th>Mobile Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (users of userData; track $index) {
+                    <tr>
+                        <td>{{$index + 1}}</td>
+                        <td>{{users?.username}}</td>
+                        <td>{{users?.name}}</td>
+                        <td>{{users?.phone}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

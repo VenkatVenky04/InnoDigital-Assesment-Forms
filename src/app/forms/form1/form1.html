@@ -1,0 +1,24 @@
+<div>
+    <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+        <label for="">Phone Number</label>
+        <input type="text" required pattern="[0-9]{10}" maxlength="10" placeholder="Enter Mobile Number"
+            [(ngModel)]="user.phone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="phone"
+            #phone="ngModel">
+        <br>
+
+        <label for="">Email</label>
+        <input type="email" required placeholder="Enter Email" [(ngModel)]="user.email" name="email" #email="ngModel">
+        <br>
+
+        @if (user.phone.length === 10) {
+        <label for="">OTP</label>
+        <input type="text" required pattern="[1-4]{4}" maxlength="4" placeholder="Enter Otp" [(ngModel)]="user.otp"
+            name="otp" [ngModelOptions]="{ updateOn: 'change' }" #otp="ngModel"
+            onkeypress="return event.charCode >= 49 && event.charCode<= 52">
+        <br>
+        }
+        <br>
+
+        <input type="submit" (click)="onSubmit(formRef)">
+    </form>
+</div>
